@@ -41,7 +41,7 @@ Ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone git@github.com:PrasadSardesai007/SampleSeleniumFramework.git
+   git clone git@github.com:PrasadSardesai/SeleniumCuucumberFramework.git
 
 Install dependencies:
 
@@ -53,7 +53,7 @@ mvn clean install
 │   ├── main
 │   │   ├── java
 │   │   │   └── com
-│   │   │       └── pncbank
+│   │   │       └── 
 │   │   │           ├── pages
 │   │   │           ├── utils
 │   │   │           └── steps
@@ -63,7 +63,6 @@ mvn clean install
 │   └── test
 │       └── java
 │           └── com
-│               └── pncbank
 │                   └── runners
 └── pom.xml
 
@@ -74,7 +73,7 @@ Write your BDD scenarios in the src/main/resources/features directory using the 
 
 Implement step definitions:
 
-Implement the steps in the src/main/java/com/pncbank/steps directory.
+Implement the steps in the src/main/java/com/steps directory.
 
 Configure your testing framework:
 
@@ -86,7 +85,7 @@ To run the tests, execute the following command:
 
 mvn test
 
-You can also run specific scenarios or tags using Cucumber options in the test runner classes located in src/test/java/com/pncbank/runners.
+You can also run specific scenarios or tags using Cucumber options in the test runner classes located in src/test/java/com/runners.
 
 ## Reporting
 Reports can be generated using Extent Reports. Configure your reporting in the respective configuration 
@@ -94,6 +93,6 @@ files to get detailed insights into your test execution.
 
 ### Customization Notes
 - **Project URL**: Make sure to replace the GitHub URL in the clone section with your actual repository URL.
-- **Folder Structure**: Update the package names (`pncbank`) if your project uses different names.
+- **Folder Structure**: Update the package names, if your project uses different names.
 - **Reporting section**: If you use a different reporting tool, update that section accordingly.
 - **License**: Ensure you have a `LICENSE` file if you're mentioning one in the README.
