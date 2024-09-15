@@ -8,8 +8,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.qa.util.ConfigReader;
+
 import java.time.Duration;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * BasePage class that contains common methods for interacting with web
@@ -19,22 +23,56 @@ public class BasePage {
 
 	protected WebDriver driver; // WebDriver instance
 	private WebDriverWait wait; // WebDriverWait instance
+	private String configPath = System.getProperty("user.dir") + "\\src\\test\\resources\\config\\config.properties";
+	Properties prop;
 
 	// Constructor to initialize WebDriver and WebDriverWait
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Default wait time
 	}
-	
+
 	// ================== Launch Url Method ==================
+
+	/**
+	 * 
+	 * Method will return application url based on Config file
+	 * 
+	 * @return url as per Config set up
+	 * 
+	 */
+
+	public String getUrl() {
+		ConfigReader con = new ConfigReader();
+		prop = con.init_prop(configPath);
+
+		String environment = prop.getProperty("setUpEnvironment");
+
+		String url = "";
+		switch (environment.toUpperCase()) {
+		case "SIT":
+			url = prop.getProperty("sit.url");
+			break;
+		case "UAT":
+			url = prop.getProperty("uat.url");
+			break;
+		default:
+			System.out.println("Invalid environment set up in config file");
+			break;
+		}
+
+		return url;
+
+	}
 
 	/**
 	 * Method to launch the application.
 	 * 
 	 * @param The url of the application as a String.
-	*/
-	
-	public void get(String url) {
+	 */
+
+	public void launchUrl() {
+		String url = getUrl();
 		driver.get(url);
 	}
 

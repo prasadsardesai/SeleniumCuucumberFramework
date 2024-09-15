@@ -14,9 +14,9 @@ public class LoginPage extends BasePage {
 		super(driver);
 	}
 
-	public void launchUrl() {
+	public void launchApp() {
 
-		get("https://magento.softwaretestingboard.com/customer/account/login");
+		launchUrl();
 	}
 
 	public String getTitleOfHomePage() {

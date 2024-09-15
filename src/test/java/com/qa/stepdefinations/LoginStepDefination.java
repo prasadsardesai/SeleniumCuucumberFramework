@@ -18,7 +18,7 @@ public class LoginStepDefination {
 
 	@Given("user is on the Software TestingBoard login page")
 	public void user_is_on_the_orange_hrm_login_page() {
-		objLoginPage.launchUrl();
+		objLoginPage.launchApp();
 		System.out.println("Software TestingBoard Page is launched..");
 	}
 
